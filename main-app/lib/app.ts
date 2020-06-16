@@ -1,4 +1,5 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import IController from 'controller/IController';
 
 class App{
@@ -9,8 +10,10 @@ class App{
 
     constructor(controllers: IController[], port: number) {
         this.app = express();
-        this.controllers = controllers;
+        this.app.use(bodyParser.json());
+        this.app.use(bodyParser.urlencoded({ extended: false }));
         this.port = port;
+        this.controllers = controllers;
         this.initializeController()
     }
 

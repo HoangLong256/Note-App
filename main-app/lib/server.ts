@@ -1,11 +1,10 @@
 import App from './app';
-import TestContrller from './controller/TestController'
-import TestController from './controller/TestController';
+import NoteController from './controller/note.controller';
 const PORT = 3000;
 
 const app = new App(
     [
-        new TestController(),
+        new NoteController(),
     ],
     3000
 );
